@@ -1,0 +1,542 @@
+[
+    {
+        "id": "046fdc24b5fd0a6b",
+        "type": "tab",
+        "label": "A002",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8bfe4e8690cb5ef7",
+        "type": "mqtt-broker",
+        "name": "MacBookMqttBroker",
+        "broker": "192.168.50.2",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "noderedtest",
+        "birthQos": "2",
+        "birthPayload": "connect",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4973efe8719ac46c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "d3f4f9cc11d962a7",
+        "type": "ui_tab",
+        "name": "A002溫濕度",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "69575c61139b4545",
+        "type": "ui_group",
+        "name": "溫度",
+        "tab": "d3f4f9cc11d962a7",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "fe435069ea0eb0c6",
+        "type": "ui_group",
+        "name": "濕度",
+        "tab": "d3f4f9cc11d962a7",
+        "order": 2,
+        "disp": true,
+        "width": "4",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "199067b09567081b",
+        "type": "websocket-listener",
+        "path": "ws://192.168.50.2:3002/chat",
+        "wholemsg": "true"
+    },
+    {
+        "id": "a4645472fc24a2d1",
+        "type": "websocket-client",
+        "path": "ws://192.168.50.2:3002/chat",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0"
+    },
+    {
+        "id": "463e824a966fb7eb",
+        "type": "mqtt in",
+        "z": "046fdc24b5fd0a6b",
+        "name": "A002_Temperature",
+        "topic": "SUNIX/99:00:41_EZG1300/97:01:22_EZR5231/GET/AI_INTERFACE/CH_01",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "8bfe4e8690cb5ef7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "428dedb7f8187d0b"
+            ]
+        ]
+    },
+    {
+        "id": "428dedb7f8187d0b",
+        "type": "function",
+        "z": "046fdc24b5fd0a6b",
+        "name": "GetTemperature()",
+        "func": "let temperature = msg.payload.params.data;\nmsg.payload = temperature;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "9d261f72e037bc02",
+                "8fb6060fa6069e65",
+                "d62f4295255f267f"
+            ]
+        ]
+    },
+    {
+        "id": "9d261f72e037bc02",
+        "type": "debug",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8fb6060fa6069e65",
+        "type": "ui_gauge",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "group": "69575c61139b4545",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "50",
+        "className": "",
+        "x": 540,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d62f4295255f267f",
+        "type": "ui_chart",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "group": "69575c61139b4545",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b85471875277038f",
+        "type": "mqtt in",
+        "z": "046fdc24b5fd0a6b",
+        "name": "A002_Humidity",
+        "topic": "SUNIX/99:00:41_EZG1300/97:01:22_EZR5231/GET/AI_INTERFACE/CH_02",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "8bfe4e8690cb5ef7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "742708edfb12291d"
+            ]
+        ]
+    },
+    {
+        "id": "742708edfb12291d",
+        "type": "function",
+        "z": "046fdc24b5fd0a6b",
+        "name": "GetHumidity()",
+        "func": "let humidity = msg.payload.params.data;\nmsg.payload = humidity;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "e1722b78059fe939",
+                "83ec5469dd3724b1"
+            ]
+        ]
+    },
+    {
+        "id": "e1722b78059fe939",
+        "type": "ui_gauge",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "group": "fe435069ea0eb0c6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "50",
+        "className": "",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "83ec5469dd3724b1",
+        "type": "ui_chart",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "group": "fe435069ea0eb0c6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f485089e94783d1e",
+        "type": "http request",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.50.2:3000/test/{{{query}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 460,
+        "wires": [
+            [
+                "e96fd7f6809a61b7"
+            ]
+        ]
+    },
+    {
+        "id": "08e0c476a959cc19",
+        "type": "inject",
+        "z": "046fdc24b5fd0a6b",
+        "name": "make request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "12345",
+        "payloadType": "num",
+        "x": 140,
+        "y": 460,
+        "wires": [
+            [
+                "58825583e7dde4cc"
+            ]
+        ]
+    },
+    {
+        "id": "58825583e7dde4cc",
+        "type": "change",
+        "z": "046fdc24b5fd0a6b",
+        "name": "set msg.query",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "f485089e94783d1e"
+            ]
+        ]
+    },
+    {
+        "id": "e96fd7f6809a61b7",
+        "type": "debug",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "696690c7d423259c",
+        "type": "websocket in",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "server": "199067b09567081b",
+        "client": "",
+        "x": 210,
+        "y": 620,
+        "wires": [
+            [
+                "5f5b23b174268f70"
+            ]
+        ]
+    },
+    {
+        "id": "5f5b23b174268f70",
+        "type": "debug",
+        "z": "046fdc24b5fd0a6b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 620,
+        "wires": []
+    }
+]

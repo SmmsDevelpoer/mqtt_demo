@@ -1,0 +1,42 @@
+# For Ming-Xu Project
+version: "3.8"
+
+services:
+  mosquitto:
+    init: true
+    image: eclipse-mosquitto:2.0.14-openssl
+    container_name: mosquitto
+    restart: always
+    volumes:
+      - ./data/mosquitto/config:/mosquitto/config
+      - ./data/mosquitto/data:/mosquitto/data
+      - ./data/mosquitto/log:/mosquitto/log
+    ports:
+      - target: 1883
+        published: 1883
+        protocol: tcp
+      - target: 9001
+        published: 9001
+        protocol: tcp
+    networks:
+      - smms-network
+  node-red:
+    init: true
+    image: nodered/node-red:latest-14-minimal
+    container_name: node-red
+    restart: always
+    environment:
+      - TZ=Asia/Taipei
+    ports:
+      - target: 1880
+        published: 1880
+        protocol: tcp
+    networks:
+      - smms-network
+    volumes:
+      - ./data/node_red:/data
+    depends_on:
+      - mosquitto
+networks:
+  smms-network:
+    driver: bridge
