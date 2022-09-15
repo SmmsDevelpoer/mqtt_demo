@@ -22,7 +22,7 @@ services:
       - smms-network
   node-red:
     init: true
-    image: nodered/node-red:latest-14-minimal
+    image: nodered/node-red:3.0.2-14
     container_name: node-red
     restart: always
     environment:
