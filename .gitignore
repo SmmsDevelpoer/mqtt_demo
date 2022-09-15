@@ -38,9 +38,9 @@ lerna-debug.log*
 
 # Node-RED
 **/.npm/
-#!node_red/package.json
-#!node_red/package-lock.json
-#!node_red/flows.json
-#!node_red/flows_cred.json
-#!data/node_red/settings.js
-#node_red/settings.js
+!node_red/package.json
+!node_red/package-lock.json
+!node_red/flows.json
+!node_red/flows_cred.json
+!data/node_red/settings.js
+node_red/settings.js
