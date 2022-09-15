@@ -21,8 +21,9 @@ services:
     networks:
       - smms-network
   node-red:
-    init: true
-    image: nodered/node-red:3.0.2-14
+    build:
+      context: ./data/dockerfile/nodeRed
+      dockerfile: Dockerfile
     container_name: node-red
     restart: always
     environment:
