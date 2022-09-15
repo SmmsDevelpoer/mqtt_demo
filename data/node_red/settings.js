@@ -75,6 +75,7 @@ module.exports = {
    */
   adminAuth: {
     type: "credentials",
+    sessionExpiryTime: 86400,
     users: [
       {
         username: "smmsadmin",
@@ -336,17 +337,17 @@ module.exports = {
      */
     //theme: "",
     page: {
-      title: "台力資訊監控",
-      // favicon: "/absolute/path/to/theme/icon",
+      title: "測試資訊監控",
+      // favicon: "/absolute/path/to/theme/icon",111
       // css: "/absolute/path/to/custom/css/file"
     },
     header: {
-      title: "台力資訊監控",
-      image: "/data/icon/header/apple.png", // or null to remove image
+      title: "測試資訊監控",
+      image: "/data/icon/header/smms-mes.ico", // or null to remove image
       // url: "http://nodered.org" // optional url to make the header text/image a link to this url
     },
     login: {
-      image: "/data/icon/login/smms.png" // a 256x256 image
+      image: "/data/icon/login/smms-mes.ico" // a 256x256 image
     },
     logout: {
       redirect: "http://example.com"

@@ -37,4 +37,10 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # Node-RED
-.npm/
+**/.npm/
+#!node_red/package.json
+#!node_red/package-lock.json
+#!node_red/flows.json
+#!node_red/flows_cred.json
+#!data/node_red/settings.js
+#node_red/settings.js
