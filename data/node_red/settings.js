@@ -384,17 +384,17 @@ module.exports = {
 
         page: {
             title: "測試資訊監控",
-            favicon: "/data/icon/header/smms-mes.ico",
+            favicon: "/data/icon/smms-mes.ico",
             // css: "/absolute/path/to/custom/css/file"
         },
 
         header: {
             title: "測試資訊監控",
-            image: "/data/icon/header/smms-mes.ico",
+            image: "/data/icon/smms-mes.ico",
         },
 
         login: {
-            image: "/data/icon/header/smms-mes.ico"
+            image: "/data/icon/smms-mes.ico"
         },
 
         /** To disable the 'Welcome to Node-RED' tour that is displayed the first
