@@ -11,6 +11,11 @@ services:
       - ./data/mosquitto/config:/mosquitto/config
       - ./data/mosquitto/data:/mosquitto/data
       - ./data/mosquitto/log:/mosquitto/log
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080" ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
     ports:
       - target: 1883
         published: 1883
