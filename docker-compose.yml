@@ -12,7 +12,7 @@ services:
       - ./data/mosquitto/data:/mosquitto/data
       - ./data/mosquitto/log:/mosquitto/log
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080" ]
+      test: ["CMD", "curl", "-f", "http://localhost:9090" ]
       interval: 30s
       timeout: 3s
       retries: 3
@@ -25,24 +25,24 @@ services:
         protocol: tcp
     networks:
       - smms-network
-  node-red:
-    build:
-      context: ./data/dockerfile/nodeRed
-      dockerfile: Dockerfile
-    container_name: node-red
-    restart: always
-    environment:
-      - TZ=Asia/Taipei
-    ports:
-      - target: 1880
-        published: 1880
-        protocol: tcp
-    networks:
-      - smms-network
-    volumes:
-      - ./data/node_red:/data
-    depends_on:
-      - mosquitto
+#  node-red:
+#    build:
+#      context: ./data/dockerfile/nodeRed
+#      dockerfile: Dockerfile
+#    container_name: node-red
+#    restart: always
+#    environment:
+#      - TZ=Asia/Taipei
+#    ports:
+#      - target: 1880
+#        published: 1880
+#        protocol: tcp
+#    networks:
+#      - smms-network
+#    volumes:
+#      - ./data/node_red:/data
+#    depends_on:
+#      - mosquitto
 networks:
   smms-network:
     driver: bridge
